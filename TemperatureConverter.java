@@ -1,42 +1,43 @@
 import java.util.Scanner;
+
 public class TemperatureConverter {
-    Public Station void main(String[]args)
-    {Scanner scanner = new
-    Scanner (System.in);
-    
-    System.out.printIn("Choose an option:");
-    System.out.printIn("1. Convert Celsius to Fahrenheit");
-    System.out.printIn(2. Convert Fahrenheit to Celsius);
-    System.out.print("Enter your choice(1 or 2):");
-    
-    int choice = scanner.nextInt();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
-    System.out.print("Enter the temperature value");
-    double temperature = scanner.nextDouble();
+        System.out.println("Temperature Converter");
+        System.out.println("1. Celsius to Fahrenheit");
+        System.out.println("2. Fahrenheit to Celsius");
+        System.out.print("Enter your choice (1/2): ");
+        int choice = scanner.nextInt();
 
-    double converterTemperature;
+        if (choice == 1) {
+            System.out.print("Enter temperature in Celsius: ");
+            double celsius = scanner.nextDouble();
+            double fahrenheit = convertCelsiusToFahrenheit(celsius);
+            System.out.printf("%.2f°C is equal to %.2f°F%n", celsius, fahrenheit);
+        } else if (choice == 2) {
+            System.out.print("Enter temperature in Fahrenheit: ");
+            double fahrenheit = scanner.nextDouble();
+            double celsius = convertFahrenheitToCelsius(fahrenheit);
+            System.out.printf("%.2f°F is equal to %.2f°C%n", fahrenheit, celsius);
+        } else {
+            System.out.println("Invalid choice");
+        }
 
-    if (choice==1){
-        convertedTemperature=
-        celsiustoFahrenheit(temperature);
-        System.out.printIn(temperature + "degrees Celsius is equal to" +convertedTemperature + "degrees Fahrenheit.");
-    }   else if (choice==2){
-        convertedTemperature=
-        FahrenheittoCelsius(temperature);
-        System.out.printIn(temperature + "degrees Fahrenheit is equal to" + convertedTemperature + "degrees Celsius.");
-    }   else{
-        System.out.printIn("Invalid choice.");
-    }
-    scanner.close();
-    }
+        scanner.close();
+        }
 
-    public static double
-    celsiustoFahrenheit(double celsius) {
-        return (celsius*9/5) + 32;
+    public static double convertCelsiusToFahrenheit(double celsius) {
+        return (celsius * 9 / 5) + 32;
     }
 
-    public static double
-    fahrenheittoCelsius(double fahrenheit){
-        return (fahrenheit - 32)*5/9;
+    public static double convertFahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5 / 9;
     }
 }
+
+
+
+
+
+
